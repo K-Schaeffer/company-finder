@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Company Finder
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>The Basis</ion-card-subtitle>
+      <ion-card-title>What is it?</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      So, I'll provide you informations about a company at your email, I just need you to fill these:
+    </ion-card-content>
+  </ion-card>
+
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label>Your Name *</ion-label>
+      <ion-input type="text" formControlName="name" [required]></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Your Email *</ion-label>
+      <ion-input type="text"  formControlName="email" [required]></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Company's CNPJ *</ion-label>
+      <ion-input type="text"  formControlName="cnpj" [brmasker]="{person: true}" [required]></ion-input>
+    </ion-item>
+    <section class="full-width">
+      <ion-button expand="full" color="dark" (click)="onClick()">Submit</ion-button>
+    </section>
+    <ion-progress-bar type="indeterminate" id="progress" *ngIf="clicked"></ion-progress-bar>
+  </form>
+
+</ion-content>
